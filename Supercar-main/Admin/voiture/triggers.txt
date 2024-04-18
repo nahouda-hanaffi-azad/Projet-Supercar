@@ -1,0 +1,10 @@
+DELIMITER //
+CREATE TRIGGER voiture_insert_trigger
+AFTER INSERT ON voitures
+FOR EACH ROW
+BEGIN
+    INSERT INTO model (voiture_id)
+    VALUES (NEW.id);
+END;
+//
+DELIMITER ;
